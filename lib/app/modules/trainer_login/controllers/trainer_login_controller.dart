@@ -4,8 +4,12 @@ import 'package:hive/hive.dart';
 import '../../../routes/app_pages.dart';
 
 class TrainerLoginController extends GetxController {
-  final TextEditingController emailController = TextEditingController(text: 'aarav@trainer.com');
-  final TextEditingController passwordController = TextEditingController(text: 'password123');
+  final TextEditingController emailController = TextEditingController(
+    text: 'aarav@trainer.com',
+  );
+  final TextEditingController passwordController = TextEditingController(
+    text: 'password123',
+  );
   final RxBool isLoading = false.obs;
 
   @override

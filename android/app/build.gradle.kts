@@ -53,12 +53,5 @@ flutter {
 }
 
 dependencies {
-
     implementation("androidx.multidex:multidex:2.0.1")
-
-    implementation("com.google.protobuf:protobuf-javalite:3.21.12")
-
-    implementation("com.google.mediapipe:solution-core:0.10.14")
-
-    implementation("com.google.mediapipe:tasks-vision:0.10.14")
 }
