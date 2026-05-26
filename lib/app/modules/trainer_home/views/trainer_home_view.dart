@@ -146,19 +146,16 @@ class TrainerHomeView extends GetView<TrainerHomeController> {
                       );
                     },
                   ),
-                  _buildDashboardTile(
-                    title: 'Chats',
-                    count: '3 New',
-                    icon: Icons.forum_rounded,
-                    color: const Color(0xFF0EA5E9), // Sky-500
-                    onTap: () {
-                      Get.snackbar(
-                        'Chats Dashboard',
-                        'Opening trainee live chatrooms...',
-                        snackPosition: SnackPosition.BOTTOM,
-                        backgroundColor: const Color(0xFFF0F9FF),
-                      );
-                    },
+                  Obx(
+                    () => _buildDashboardTile(
+                      title: 'Chats',
+                      count: controller.unreadChats.value > 0
+                          ? '${controller.unreadChats.value} New'
+                          : 'Inbox Clean',
+                      icon: Icons.forum_rounded,
+                      color: const Color(0xFF0EA5E9), // Sky-500
+                      onTap: () => Get.toNamed(Routes.CHAT_LIST),
+                    ),
                   ),
                   _buildDashboardTile(
                     title: 'Requests',
@@ -166,12 +163,7 @@ class TrainerHomeView extends GetView<TrainerHomeController> {
                     icon: Icons.notification_important_rounded,
                     color: const Color(0xFFF59E0B), // Amber-500
                     onTap: () {
-                      Get.snackbar(
-                        'Trainee Requests',
-                        'Reviewing auto-assign and coaching requests...',
-                        snackPosition: SnackPosition.BOTTOM,
-                        backgroundColor: const Color(0xFFFEF3C7),
-                      );
+                      Get.toNamed(Routes.TRAINER_REQUESTS);
                     },
                   ),
                   _buildDashboardTile(

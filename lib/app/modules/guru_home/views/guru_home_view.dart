@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import '../../../routes/app_pages.dart';
+import '../../session_logs/views/session_logs_view.dart';
 import '../controllers/guru_home_controller.dart';
 
 class GuruHomeView extends GetView<GuruHomeController> {
@@ -13,7 +14,10 @@ class GuruHomeView extends GetView<GuruHomeController> {
       appBar: AppBar(
         title: const Text(
           'Guru Client Home',
-          style: TextStyle(fontWeight: FontWeight.w800, color: Color(0xFF1E293B)),
+          style: TextStyle(
+            fontWeight: FontWeight.w800,
+            color: Color(0xFF1E293B),
+          ),
         ),
         backgroundColor: Colors.white,
         elevation: 0,
@@ -41,7 +45,10 @@ class GuruHomeView extends GetView<GuruHomeController> {
                 padding: const EdgeInsets.all(20),
                 decoration: BoxDecoration(
                   gradient: const LinearGradient(
-                    colors: [Color(0xFF4F46E5), Color(0xFF6366F1)], // Indigo gradients
+                    colors: [
+                      Color(0xFF4F46E5),
+                      Color(0xFF6366F1),
+                    ], // Indigo gradients
                     begin: Alignment.topLeft,
                     end: Alignment.bottomRight,
                   ),
@@ -51,7 +58,7 @@ class GuruHomeView extends GetView<GuruHomeController> {
                       color: const Color(0xFF4F46E5).withOpacity(0.2),
                       blurRadius: 15,
                       offset: const Offset(0, 8),
-                    )
+                    ),
                   ],
                 ),
                 child: Row(
@@ -84,7 +91,10 @@ class GuruHomeView extends GetView<GuruHomeController> {
                           ),
                           const SizedBox(height: 6),
                           Container(
-                            padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 4),
+                            padding: const EdgeInsets.symmetric(
+                              horizontal: 10,
+                              vertical: 4,
+                            ),
                             decoration: BoxDecoration(
                               color: Colors.white.withOpacity(0.18),
                               borderRadius: BorderRadius.circular(20),
@@ -92,7 +102,11 @@ class GuruHomeView extends GetView<GuruHomeController> {
                             child: Row(
                               mainAxisSize: MainAxisSize.min,
                               children: [
-                                const Icon(Icons.star_rounded, color: Colors.amber, size: 14),
+                                const Icon(
+                                  Icons.star_rounded,
+                                  color: Colors.amber,
+                                  size: 14,
+                                ),
                                 const SizedBox(width: 4),
                                 Text(
                                   'Trainer: ${controller.assignedTrainer.value}',
@@ -128,18 +142,13 @@ class GuruHomeView extends GetView<GuruHomeController> {
               // Card 1: Chat with Trainer
               _buildHomeCard(
                 title: 'Chat with Trainer',
-                description: 'Direct live messaging with ${controller.assignedTrainer.value}',
+                description:
+                    'Direct live messaging with ${controller.assignedTrainer.value}',
                 icon: Icons.chat_bubble_rounded,
                 cardColor: Colors.white,
                 iconColor: const Color(0xFF4F46E5),
-                onTap: () {
-                  Get.snackbar(
-                    'Chat Initiated',
-                    'Connecting you to ${controller.assignedTrainer.value}...',
-                    snackPosition: SnackPosition.BOTTOM,
-                    backgroundColor: const Color(0xFFEEF2FF),
-                  );
-                },
+                onTap: () =>
+                    Get.toNamed(Routes.CHAT, arguments: {'role': 'member'}),
               ),
 
               const SizedBox(height: 16),
@@ -152,12 +161,13 @@ class GuruHomeView extends GetView<GuruHomeController> {
                 cardColor: Colors.white,
                 iconColor: const Color(0xFF0EA5E9),
                 onTap: () {
-                  Get.snackbar(
-                    'Schedule Booking',
-                    'Opening call scheduler...',
-                    snackPosition: SnackPosition.BOTTOM,
-                    backgroundColor: const Color(0xFFF0F9FF),
-                  );
+                  Get.toNamed(Routes.CALL_REQUEST);
+                  // Get.snackbar(
+                  //   'Schedule Booking',
+                  //   'Opening call scheduler...',
+                  //   snackPosition: SnackPosition.BOTTOM,
+                  //   backgroundColor: const Color(0xFFF0F9FF),
+                  // );
                 },
               ),
 
@@ -171,17 +181,12 @@ class GuruHomeView extends GetView<GuruHomeController> {
                 cardColor: Colors.white,
                 iconColor: const Color(0xFF10B981),
                 onTap: () {
-                  Get.snackbar(
-                    'My Sessions',
-                    'Loading your session records...',
-                    snackPosition: SnackPosition.BOTTOM,
-                    backgroundColor: const Color(0xFFECFDF5),
-                  );
+                  Get.toNamed(Routes.SESSION_LOGS);
                 },
               ),
 
               const SizedBox(height: 40),
-              
+
               // Back to selector
               OutlinedButton.icon(
                 onPressed: () => Get.offAllNamed(Routes.ROLE_SELECTION),
@@ -225,7 +230,7 @@ class GuruHomeView extends GetView<GuruHomeController> {
               color: Colors.black.withOpacity(0.02),
               blurRadius: 10,
               offset: const Offset(0, 4),
-            )
+            ),
           ],
         ),
         child: Row(
@@ -236,11 +241,7 @@ class GuruHomeView extends GetView<GuruHomeController> {
                 color: iconColor.withOpacity(0.1),
                 borderRadius: BorderRadius.circular(16),
               ),
-              child: Icon(
-                icon,
-                size: 28,
-                color: iconColor,
-              ),
+              child: Icon(icon, size: 28, color: iconColor),
             ),
             const SizedBox(width: 18),
             Expanded(

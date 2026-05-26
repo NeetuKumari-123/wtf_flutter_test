@@ -12,7 +12,10 @@ class TrainerLoginView extends GetView<TrainerLoginController> {
       appBar: AppBar(
         title: const Text(
           'Trainer Portal',
-          style: TextStyle(fontWeight: FontWeight.w800, color: Color(0xFF0F172A)),
+          style: TextStyle(
+            fontWeight: FontWeight.w800,
+            color: Color(0xFF0F172A),
+          ),
         ),
         backgroundColor: Colors.white,
         elevation: 0,
@@ -84,7 +87,11 @@ class TrainerLoginView extends GetView<TrainerLoginController> {
                       ),
                       child: const Row(
                         children: [
-                          Icon(Icons.info_outline_rounded, size: 18, color: Color(0xFF475569)),
+                          Icon(
+                            Icons.info_outline_rounded,
+                            size: 18,
+                            color: Color(0xFF475569),
+                          ),
                           SizedBox(width: 10),
                           Expanded(
                             child: Text(
@@ -114,24 +121,43 @@ class TrainerLoginView extends GetView<TrainerLoginController> {
                     TextField(
                       controller: controller.emailController,
                       decoration: InputDecoration(
-                        prefixIcon: const Icon(Icons.email_outlined, size: 20, color: Color(0xFF64748B)),
+                        prefixIcon: const Icon(
+                          Icons.email_outlined,
+                          size: 20,
+                          color: Color(0xFF64748B),
+                        ),
                         fillColor: Colors.white,
                         filled: true,
-                        contentPadding: const EdgeInsets.symmetric(horizontal: 16, vertical: 16),
+                        contentPadding: const EdgeInsets.symmetric(
+                          horizontal: 16,
+                          vertical: 16,
+                        ),
                         border: OutlineInputBorder(
                           borderRadius: BorderRadius.circular(12),
-                          borderSide: const BorderSide(color: Color(0xFFE2E8F0), width: 1.5),
+                          borderSide: const BorderSide(
+                            color: Color(0xFFE2E8F0),
+                            width: 1.5,
+                          ),
                         ),
                         enabledBorder: OutlineInputBorder(
                           borderRadius: BorderRadius.circular(12),
-                          borderSide: const BorderSide(color: Color(0xFFE2E8F0), width: 1.5),
+                          borderSide: const BorderSide(
+                            color: Color(0xFFE2E8F0),
+                            width: 1.5,
+                          ),
                         ),
                         focusedBorder: OutlineInputBorder(
                           borderRadius: BorderRadius.circular(12),
-                          borderSide: const BorderSide(color: Color(0xFF0F172A), width: 2),
+                          borderSide: const BorderSide(
+                            color: Color(0xFF0F172A),
+                            width: 2,
+                          ),
                         ),
                       ),
-                      style: const TextStyle(fontWeight: FontWeight.w600, color: Color(0xFF0F172A)),
+                      style: const TextStyle(
+                        fontWeight: FontWeight.w600,
+                        color: Color(0xFF0F172A),
+                      ),
                     ),
                     const SizedBox(height: 20),
 
@@ -149,31 +175,52 @@ class TrainerLoginView extends GetView<TrainerLoginController> {
                       controller: controller.passwordController,
                       obscureText: true,
                       decoration: InputDecoration(
-                        prefixIcon: const Icon(Icons.key_rounded, size: 20, color: Color(0xFF64748B)),
+                        prefixIcon: const Icon(
+                          Icons.key_rounded,
+                          size: 20,
+                          color: Color(0xFF64748B),
+                        ),
                         fillColor: Colors.white,
                         filled: true,
-                        contentPadding: const EdgeInsets.symmetric(horizontal: 16, vertical: 16),
+                        contentPadding: const EdgeInsets.symmetric(
+                          horizontal: 16,
+                          vertical: 16,
+                        ),
                         border: OutlineInputBorder(
                           borderRadius: BorderRadius.circular(12),
-                          borderSide: const BorderSide(color: Color(0xFFE2E8F0), width: 1.5),
+                          borderSide: const BorderSide(
+                            color: Color(0xFFE2E8F0),
+                            width: 1.5,
+                          ),
                         ),
                         enabledBorder: OutlineInputBorder(
                           borderRadius: BorderRadius.circular(12),
-                          borderSide: const BorderSide(color: Color(0xFFE2E8F0), width: 1.5),
+                          borderSide: const BorderSide(
+                            color: Color(0xFFE2E8F0),
+                            width: 1.5,
+                          ),
                         ),
                         focusedBorder: OutlineInputBorder(
                           borderRadius: BorderRadius.circular(12),
-                          borderSide: const BorderSide(color: Color(0xFF0F172A), width: 2),
+                          borderSide: const BorderSide(
+                            color: Color(0xFF0F172A),
+                            width: 2,
+                          ),
                         ),
                       ),
-                      style: const TextStyle(fontWeight: FontWeight.w600, color: Color(0xFF0F172A)),
+                      style: const TextStyle(
+                        fontWeight: FontWeight.w600,
+                        color: Color(0xFF0F172A),
+                      ),
                     ),
                     const SizedBox(height: 32),
 
                     // Login Button
                     Obx(
                       () => ElevatedButton(
-                        onPressed: controller.isLoading.value ? null : () => controller.login(),
+                        onPressed: controller.isLoading.value
+                            ? null
+                            : () => controller.login(),
                         style: ElevatedButton.styleFrom(
                           backgroundColor: const Color(0xFF0F172A),
                           foregroundColor: Colors.white,
@@ -187,7 +234,10 @@ class TrainerLoginView extends GetView<TrainerLoginController> {
                             ? const SizedBox(
                                 height: 20,
                                 width: 20,
-                                child: CircularProgressIndicator(strokeWidth: 2.5, color: Colors.white),
+                                child: CircularProgressIndicator(
+                                  strokeWidth: 2.5,
+                                  color: Colors.white,
+                                ),
                               )
                             : const Text(
                                 'Log In as Aarav (Lead Trainer)',
@@ -202,7 +252,7 @@ class TrainerLoginView extends GetView<TrainerLoginController> {
                     const Spacer(flex: 2),
                   ],
                 ),
-              )
+              ),
             ],
           ),
         ),
